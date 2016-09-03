@@ -16,7 +16,7 @@ Monitoring linux server using arduino, ethernet module, LCD and PHP.
 2. install [EtherCard Library](https://github.com/jcw/ethercard)
 3. Configure the lcd pin connections
 4. Configure Ethernet module pin connections
- * VCC -   3.3V  
+ * VCC - 3.3V  
  * GND - GND  
  * SCK - Pin 13  
  * SO  - Pin 12  
@@ -31,9 +31,3 @@ Monitoring linux server using arduino, ethernet module, LCD and PHP.
 I have only tested it in my debian/nginx VPS , you may need to adjust the ```HTTP_HEADER_OFFSET``` value to remove any unwanted http headers when you are running different web server.
 
 You can use seial monitor for debugging.
-
-
-
-
-
-
