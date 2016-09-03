@@ -15,21 +15,29 @@ int backLight = 8;
 
 // ethernet interface mac address, must be unique on the LAN
 static byte mymac[] = { 0x74,0x69,0x69,0x2D,0x30,0x31 }; 
-// ethernet interface ip address // comment below line when using DHCP
-//static byte myip[] = { 192,168,1,200 }; 
-// gateway ip address for ethernet module // comment below line when using DHCP
-//static byte gwip[] = { 192,168,1,1 }; 
-// dns ip address for ethernet module // comment below line when using DHCP
-//static byte dnsip[] = { 192,168,1,1 };
-// set remote server ip address
-static byte hisip[] = { 192, 198, 95, 71 };
+
+// set to 1 to disable DHCP (adjust myip/gwip/dnsip/netmask values below)
+#define STATIC 1
+
+#if STATIC
+
+// ethernet interface ip address 
+static byte myip[] = { 192,168,1,200 }; 
+// ethernet interface subnet mask
+static byte netmask[] = { 255,255,255,0 };
+//gateway ip address for ethernet module 
+static byte gwip[] = { 192,168,1,1 }; 
+// dns ip address for ethernet module 
+static byte dnsip[] = { 192,168,1,1 };
+
+#endif
+    
+// set remote server ip address (eg:192.168.1.2)
+const char server[] PROGMEM = "192.168.1.2"; 
 
 // tcp/ip send and receive buffer
 byte Ethernet::buffer[500];
 static uint32_t timer;
-
-// set remote server ip address (eg:192.168.1.2)
-const char server[] PROGMEM = "192.198.2.2"; 
 
 // called when the client request is complete
 static void my_callback (byte status, word off, word len) {
@@ -48,7 +56,7 @@ String ram = data.substring(secondCommaIndex+1,thirdCommaIndex);
 String disk = data.substring(thirdCommaIndex+1);
 
 // Print final data after removing unwanted http headers to serial for debugging
-Serial.print("# Adjust HTTP_HEADER_OFFSET value to remove unwanted http headers #");
+Serial.print("# Adjust HTTP_HEADER_OFFSET value if server readings looks incorrect #");
 Serial.print((const char*) Ethernet::buffer + off + HTTP_HEADER_OFFSET); 
 Serial.print('\n');
 
@@ -144,24 +152,25 @@ void setup () {
    if (ether.begin(sizeof Ethernet::buffer, mymac) == 0) 
     Serial.println(F("Failed to access Ethernet controller"));
    
-   // set  remote server ip 
-    ether.copyIp(ether.hisip, hisip);
-   
-   // uncomment below line to set static IP for ethernet module // comment below line when using DHCP
-   // ether.staticSetup(myip, gwip, dnsip);
-    
-    // comment below lines when using static IP
-     Serial.println(F("Setting up DHCP"));
-     if (!ether.dhcpSetup())
-     Serial.println(F("DHCP failed"));
+  
+     #if STATIC
+     // set static IP for ethernet module
+         ether.staticSetup(myip, gwip, dnsip, netmask);
+     #else
+     // set DHCP ethernet module
+         if (!ether.dhcpSetup())
+         Serial.println("DHCP failed");
+     #endif
+  
+    //set remote server ip address (eg:192.168.1.2)
+    ether.parseIp(ether.hisip, "192.198.1.2");
    
     // Print network details to serial for debugging
     ether.printIp("My IP: ", ether.myip);
     ether.printIp("Netmask: ", ether.netmask);
     ether.printIp("GW IP: ", ether.gwip);
     ether.printIp("DNS IP: ", ether.dnsip); 
-    ether.parseIp(ether.hisip, "192.198.2.2");
-    ether.printIp("SRV: ", ether.hisip);
+    ether.printIp("Server IP: ", ether.hisip);
     
 }
 
@@ -180,3 +189,4 @@ void loop () {
 
   }
 }
+
