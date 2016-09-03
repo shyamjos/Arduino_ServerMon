@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/shyamjos/Arduino-Linux-Monitor.svg?branch=master)](https://travis-ci.org/shyamjos/Arduino-Linux-Monitor)
 # Arduino Linux Monitor
 Monitoring linux server using arduino, ethernet module, LCD and PHP.
 
