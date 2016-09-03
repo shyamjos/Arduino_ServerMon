@@ -22,7 +22,6 @@ Monitoring linux server using arduino, ethernet module, LCD and PHP.
  * SO  - Pin 12  
  * SI  - Pin 11  
  * CS  - Pin  10
-
 5. Upload data.php to your web server 
 6. update remote server IP address and path to php script in arduino sketch
 7. DHCP is enabled by default , You can set static IP for arduino if needed
