@@ -30,4 +30,4 @@ Monitoring linux server using arduino, ethernet module, LCD and PHP.
 10. Use serial monitor for debugging
 
 ##Issues
-I have only tested it in my debian/nginx VPS , you may need to adjust the ```HTTP_HEADER_OFFSET``` value to remove any unwanted http headers when you are running different web server.
+I have only tested it in my debian/nginx VPS , you may need to adjust the ```HTTP_HEADER_OFFSET``` value to remove any unwanted http headers.
