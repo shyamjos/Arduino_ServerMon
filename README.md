@@ -25,9 +25,9 @@ Monitoring linux server using arduino, ethernet module, LCD and PHP.
 5. Upload data.php to your web server 
 6. update remote server IP address and path to php script in arduino sketch
 7. DHCP is enabled by default , You can set static IP for arduino if needed
-8. Upload the sketch and use serial monitor for debugging
+8. Connect the ethernet cable to the module and upload the sketch to arduino
+9. Adjust the  ```HTTP_HEADER_OFFSET``` value if the readings looks incorrect
+10. Use serial monitor for debugging
 
 ##Issues
 I have only tested it in my debian/nginx VPS , you may need to adjust the ```HTTP_HEADER_OFFSET``` value to remove any unwanted http headers when you are running different web server.
-
-You can use seial monitor for debugging.
