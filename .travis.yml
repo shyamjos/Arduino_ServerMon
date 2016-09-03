@@ -23,7 +23,7 @@ install:
     # http://platformio.org/lib/show/62/MIDI
     # http://platformio.org/lib/show/416/TinyGPS
     # http://platformio.org/lib/show/417/SPI4Teensy3
-    - platformio lib install 62 416 417
+    - platformio lib install 425
 
 script:
     - platformio ci --board=uno --lib="."
