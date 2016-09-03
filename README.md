@@ -16,7 +16,7 @@ Monitoring linux server using arduino, ethernet module, LCD and PHP.
 2. Configure the lcd pin connections
 3. Configure Ethernet module pin connections
 
-VCC -   3.3V
+VCC -   3.3V  
 GND - GND  
 SCK - Pin 13  
 SO  - Pin 12  
