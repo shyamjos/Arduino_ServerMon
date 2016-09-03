@@ -1,4 +1,7 @@
 <?php
+// Monitoring Linux server with arduino uno, LCD, ethernet module and PHP.
+// Created 27 Aug 2016 by Shyam Jos <shyamjosepp@gmail.com> http://shyamjos.com
+
 // get server up time
      $data = shell_exec('uptime'); 
      $uptime = explode(' up ', $data);
