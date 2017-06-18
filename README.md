@@ -2,7 +2,7 @@
 # Arduino Linux Monitor [![Build Status](https://travis-ci.org/shyamjos/Arduino_ServerMon.svg?branch=master)](https://travis-ci.org/shyamjos/Arduino_ServerMon)
 Monitoring linux server using arduino, ethernet module, LCD and PHP.
 
-##Demo 
+#Demo 
 ![demo](http://i.imgur.com/CNQ7JSf.gif "demo")
 
 ##Requirements
