@@ -2,17 +2,17 @@
 # Arduino Linux Monitor [![Build Status](https://travis-ci.org/shyamjos/Arduino_ServerMon.svg?branch=master)](https://travis-ci.org/shyamjos/Arduino_ServerMon)
 Monitoring linux server using arduino, ethernet module, LCD and PHP.
 
-#Demo 
+## Demo 
 ![demo](http://i.imgur.com/CNQ7JSf.gif "demo")
 
-##Requirements
+## Requirements
 1. An Arduino Uno
 2. A Linux server with php support (debian/nginx)
 3. Ethernet module (ENC28J60)
 4. [EtherCard Library](https://github.com/jcw/ethercard) 
 5. 16 x 2 LCD screen
 
-##Setup
+## Setup
 1. Download arduino sketch
 2. install [EtherCard Library](https://github.com/jcw/ethercard)
 3. Configure the lcd pin connections
@@ -30,5 +30,5 @@ Monitoring linux server using arduino, ethernet module, LCD and PHP.
 9. Adjust the  ```HTTP_HEADER_OFFSET``` value if the readings looks incorrect
 10. Use serial monitor for debugging
 
-##Issues
+## Issues
 I have only tested it in my debian/nginx VPS , you may need to adjust the ```HTTP_HEADER_OFFSET``` value to remove any unwanted http headers.
